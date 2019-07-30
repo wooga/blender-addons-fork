@@ -19,7 +19,7 @@
 # <pep8 compliant>
 
 bl_info = {
-    "name": "Rigify Wooga",
+    "name": "ATV_Rigify",
     "version": (0, 5, 1),
     "author": "Nathan Vegdahl, Lucio Rossi, Ivan Cappiello",
     "blender": (2, 80, 0),
@@ -173,7 +173,7 @@ class RigifyPreferences(AddonPreferences):
         op = sub.operator('wm.context_toggle', text='', icon=icon,
                           emboss=False)
         op.data_path = 'addon_prefs.show_expanded'
-        sub.label(text='{}: {}'.format('Rigify', 'Enable Legacy Mode'))
+        sub.label(text='{}: {}'.format('ATV_Rigify', 'Enable Legacy Mode'))
         sub = row.row()
         sub.alignment = 'RIGHT'
         sub.prop(self, 'legacy_mode')
@@ -194,7 +194,7 @@ class RigifyPreferences(AddonPreferences):
         op = sub.operator('wm.context_toggle', text='', icon=icon,
                           emboss=False)
         op.data_path = 'addon_prefs.show_rigs_folder_expanded'
-        sub.label(text='{}: {}'.format('Rigify', 'External feature sets'))
+        sub.label(text='{}: {}'.format('ATV_Rigify', 'External feature sets'))
         if rigs_expand:
             for fs in feature_set_list.get_installed_list():
                 row = col.split(factor=0.8)
@@ -467,17 +467,17 @@ def register():
         description="Last Frame to Transfer", default=0, min= 0)
 
     # Update legacy on restart or reload.
-    if (ui and 'legacy' in str(ui)) or bpy.context.preferences.addons['rigify'].preferences.legacy_mode:
-        bpy.context.preferences.addons['rigify'].preferences.legacy_mode = True
+    if (ui and 'legacy' in str(ui)) or bpy.context.preferences.addons['ATV_rigify'].preferences.legacy_mode:
+        bpy.context.preferences.addons['ATV_rigify'].preferences.legacy_mode = True
 
-    bpy.context.preferences.addons['rigify'].preferences.update_external_rigs()
+    bpy.context.preferences.addons['ATV_rigify'].preferences.update_external_rigs()
 
     # Add rig parameters
     register_rig_parameters()
 
 
 def register_rig_parameters():
-    if bpy.context.preferences.addons['rigify'].preferences.legacy_mode:
+    if bpy.context.preferences.addons['ATV_rigify'].preferences.legacy_mode:
         for rig in rig_lists.rig_list:
             r = utils.get_rig_type(rig)
             try:
