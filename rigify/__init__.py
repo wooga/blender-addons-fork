@@ -19,7 +19,7 @@
 # <pep8 compliant>
 
 bl_info = {
-    "name": "Rigify",
+    "name": "Rigify Wooga",
     "version": (0, 5, 1),
     "author": "Nathan Vegdahl, Lucio Rossi, Ivan Cappiello",
     "blender": (2, 80, 0),
